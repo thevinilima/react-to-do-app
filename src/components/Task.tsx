@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { MdClear } from 'react-icons/md'
 import { useTasks } from '../hooks/useTasks'
 import { TaskModel } from '../util/models/TaskModel'
 
@@ -10,7 +11,7 @@ type TaskProps = {
 
 export default function Task({ task }: TaskProps) {
 
-  const { toggleTaskChecked } = useTasks()
+  const { toggleTaskChecked, deleteTask } = useTasks()
 
   const [checked, setChecked] = useState(task.checked)
 
@@ -31,10 +32,21 @@ export default function Task({ task }: TaskProps) {
           checked={checked}
           onChange={handleCheck}
         />
-        <span>{task.name}</span>
+        <span className={`task-name ${checked}`}>
+          {task.name}
+        </span>
       </label>
       <div className="categories">
       </div>
+      {task.checked ? null :
+        <button
+          className="icon-btn delete-task-btn"
+          title="Excluir"
+          onClick={() => deleteTask(task)}
+        >
+          <MdClear size={24} color="#777" />
+        </button>
+      }
     </div>
   )
 }

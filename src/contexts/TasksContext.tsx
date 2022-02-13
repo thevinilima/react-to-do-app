@@ -6,6 +6,7 @@ type TasksContextData = {
   toggleTaskChecked(task: TaskModel): void
   createNewTask(task: TaskModel): void
   clearCheckedTasks(): void
+  deleteTask(task: TaskModel): void
   tasksUpdated: number
 }
 
@@ -67,6 +68,18 @@ export function TasksProvider({ children }: TasksProviderProps) {
     setTasksUpdated(tasksUpdated + 1)
   }
 
+  const deleteTask = (task: TaskModel) => {
+    let oldTasks = tasks
+    let updatedTasks = [] as TaskModel[]
+    oldTasks.forEach(t => {
+      if (t.id !== task.id) updatedTasks.push(t)
+    })
+    setTasks(updatedTasks)
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+
+    setTasksUpdated(tasksUpdated + 1)
+  }
+
   return (
     <TasksContext.Provider
       value={{
@@ -74,6 +87,7 @@ export function TasksProvider({ children }: TasksProviderProps) {
         toggleTaskChecked,
         createNewTask,
         clearCheckedTasks,
+        deleteTask,
         tasksUpdated,
       }}
     >

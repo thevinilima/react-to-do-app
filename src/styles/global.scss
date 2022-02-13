@@ -9,6 +9,17 @@ body {
   color: #eee;
 }
 
-body, input, button, textarea {
-  font: 400 16px 'PT Sans', sans-serif;
+body,
+input,
+button,
+textarea {
+  font: 400 16px "PT Sans", sans-serif;
+}
+
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 3px 3px 0 3px;
+  transition: all 200ms ease-in-out;
 }

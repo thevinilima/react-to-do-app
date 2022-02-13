@@ -1,10 +1,14 @@
 .task-container {
   width: 100%;
+  height: calc(1.25rem + 20px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 10px;
 
   label {
     display: flex;
@@ -16,8 +20,30 @@
       height: 20px;
     }
 
-    span {
+    .task-name {
       margin-left: 10px;
     }
+
+    .true {
+      color: #999;
+    }
+  }
+
+  .delete-task-btn {
+    display: none;
+  }
+}
+
+.task-container:hover {
+  background-color: #353535;
+
+  .delete-task-btn {
+    display: inline-block;
+    border-radius: 100%;
+  }
+
+  .delete-task-btn:hover {
+    display: inline-block;
+    background-color: #414141;
   }
 }

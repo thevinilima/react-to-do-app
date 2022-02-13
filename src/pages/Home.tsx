@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Task from '../components/Task'
 import { useTasks } from '../hooks/useTasks'
 import { TaskModel } from '../util/models/TaskModel'
-import { MdDelete } from 'react-icons/md'
+import { MdClear } from 'react-icons/md'
 
 import './../styles/home.scss'
 
@@ -54,14 +54,17 @@ export default function Home() {
       }
       {checkedTasks.length === 0 ? null :
         <div id="checked-tasks-container">
-          <div id="list-divider" />
-          <button
-            id="clear-btn"
-            title="Limpar"
-            onClick={clearCheckedTasks}
-          >
-            <MdDelete size={24} color="#aaa" />
-          </button>
+          <div id="section-divider">
+            <div id="list-divider" />
+            <button
+              id="clear-btn"
+              className="icon-btn"
+              title="Limpar"
+              onClick={clearCheckedTasks}
+            >
+              <MdClear size={24} color="#aaa" />
+            </button>
+          </div>
           <section id="checked-tasks">
             {
               checkedTasks.map((task, index) => (
