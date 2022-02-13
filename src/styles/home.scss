@@ -10,7 +10,7 @@
     margin: 0 20px;
     border: 1px solid #29292e;
     border-radius: 10px;
-    box-shadow: 0 0 5px #29292e;
+    box-shadow: 0 0 1px #29292e;
     background-color: #313131;
   }
 
@@ -73,7 +73,13 @@
       cursor: pointer;
       position: absolute;
       right: 0;
-      top: 20px;
+      top: 18px;
+      padding: 2px;
+    }
+
+    #clear-btn:hover {
+      background-color: #414141;
+      border-radius: 100%;
     }
   }
 }

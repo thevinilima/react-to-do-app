@@ -17,6 +17,7 @@ const TasksContext = createContext<TasksContextData>({} as TasksContextData)
 
 export function TasksProvider({ children }: TasksProviderProps) {
 
+  const [lastId, setLastId] = useState(0)
   const [tasks, setTasks] = useState([] as TaskModel[])
   const [tasksUpdated, setTasksUpdated] = useState(0)
 
@@ -24,6 +25,9 @@ export function TasksProvider({ children }: TasksProviderProps) {
     const getStoragedTasks = () => {
       const storagedTasks = localStorage.getItem('tasks')
       if (storagedTasks) setTasks(JSON.parse(storagedTasks))
+
+      const storagedLastId = localStorage.getItem('last-id')
+      if (storagedLastId) setLastId(parseInt(storagedLastId))
     }
     getStoragedTasks()
   }, [])
@@ -31,7 +35,9 @@ export function TasksProvider({ children }: TasksProviderProps) {
   const createNewTask = (task: TaskModel) => {
     if (!task) return
 
-    task.id = (tasks.length + 1).toString()
+    task.id = (lastId + 1).toString()
+    setLastId(lastId + 1)
+    localStorage.setItem('last-id', (lastId + 1).toString())
 
     setTasks([...tasks, task])
     localStorage.setItem('tasks', JSON.stringify([...tasks, task]))
