@@ -54,12 +54,26 @@
       justify-content: center;
     }
 
+    #checked-tasks-container {
+      position: relative;
+      width: 100%;
+    }
+
     #list-divider {
-      margin-top: 5px;
-      margin-bottom: 20px;
+      margin-top: 10px;
+      margin-bottom: 25px;
       width: 100%;
       height: 1px;
       background-color: #414141;
+    }
+
+    #clear-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 20px;
     }
   }
 }

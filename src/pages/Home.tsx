@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Task from '../components/Task'
 import { useTasks } from '../hooks/useTasks'
 import { TaskModel } from '../util/models/TaskModel'
+import { MdDelete } from 'react-icons/md'
 
 import './../styles/home.scss'
 
 export default function Home() {
 
-  const { tasks, createNewTask, tasksUpdated } = useTasks()
+  const { tasks, createNewTask, clearCheckedTasks, tasksUpdated } = useTasks()
 
   const [checkedTasks, setCheckedTasks] = useState([] as TaskModel[])
   const [uncheckedTasks, setUncheckedTasks] = useState([] as TaskModel[])
@@ -52,8 +53,15 @@ export default function Home() {
         </section>
       }
       {checkedTasks.length === 0 ? null :
-        <>
+        <div id="checked-tasks-container">
           <div id="list-divider" />
+          <button
+            id="clear-btn"
+            title="Limpar"
+            onClick={clearCheckedTasks}
+          >
+            <MdDelete size={24} color="#aaa" />
+          </button>
           <section id="checked-tasks">
             {
               checkedTasks.map((task, index) => (
@@ -61,7 +69,7 @@ export default function Home() {
               ))
             }
           </section>
-        </>
+        </div>
       }
     </>
   )
