@@ -1,5 +1,5 @@
 {
-  "homepage": "react-to-do-app/",
+  "homepage": "https://thevinilima.github.io/react-to-do-app",
   "name": "react-to-do-app",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +11,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "gh-pages": "^3.2.3",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -47,7 +48,6 @@
     ]
   },
   "devDependencies": {
-    "@types/react-icons": "^3.0.0",
-    "gh-pages": "^3.2.3"
+    "@types/react-icons": "^3.0.0"
   }
 }
