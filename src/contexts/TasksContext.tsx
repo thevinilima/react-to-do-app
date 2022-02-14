@@ -26,6 +26,7 @@ export function TasksProvider({ children }: TasksProviderProps) {
     const getStoragedTasks = () => {
       const storagedTasks = localStorage.getItem('tasks')
       if (storagedTasks) setTasks(JSON.parse(storagedTasks))
+      setTasksUpdated(tasksUpdated + 1)
 
       const storagedLastId = localStorage.getItem('last-id')
       if (storagedLastId) setLastId(parseInt(storagedLastId))
